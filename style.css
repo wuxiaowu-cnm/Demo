@@ -1,0 +1,439 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+    font-size: 14px;
+    color: #333;
+}
+
+.main-container {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 560px;
+    overflow: hidden;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.header h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.sub-title {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+.btn-highlight {
+    background: linear-gradient(to right, #FF7800, #FF5000);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(255, 120, 0, 0.2);
+    transition: all 0.3s;
+}
+
+.btn-highlight:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 120, 0, 0.3);
+}
+
+.link-parser {
+    margin-bottom: 20px;
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 14px;
+}
+
+#pasteBox {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: all 0.3s;
+    outline: none;
+    margin-bottom: 14px;
+    background: white;
+}
+
+#pasteBox:focus {
+    border-color: #4a86e8;
+    box-shadow: 0 0 0 3px rgba(74, 134, 232, 0.2);
+}
+
+#pasteBox::placeholder {
+    color: #adb5bd;
+}
+
+.btn-group {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin-bottom: 14px;
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 14px 7px;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    flex: 1;
+    min-width: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: all 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 粘贴按钮 - 蓝色 */
+.btn-paste {
+    background: linear-gradient(to right, #5bc8fa, #40bef8);
+    color: white;
+}
+
+/* Go 跳转领券按钮 - 绿色 */
+.btn-go {
+    background: linear-gradient(to right, #4a86e8, #2575fc);
+    color: white;
+}
+
+/* 清空按钮 - 红色 */
+.btn-clear {
+    background: linear-gradient(to right, #f44878, #f9215e);
+    color: white;
+}
+
+/* 主页按钮 - 橙色 */
+.btn-home {
+    background: linear-gradient(to right, #3eca61, #3eca61);
+    color: white;
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 15px;
+    margin-top: 8px;
+}
+
+.input-note {
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.coupon-panel {
+    margin-bottom: 14px;
+    border: 1px solid #e9ecef;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.coupon-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px;
+    background: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    color: #333;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+.coupon-panel-header:hover {
+    background: #f8f9fa;
+}
+
+.coupon-panel-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.panel-title-bar {
+    display: inline-block;
+    width: 4px;
+    height: 18px;
+    border-radius: 4px;
+}
+
+/* 美团外卖 - 蓝色 */
+.panel-title-bar.meituan-blue { 
+    background: linear-gradient(to bottom, #5bc8fa, #40bef8); 
+}
+
+/* 大众点评 - 红色 */
+.panel-title-bar.dianping-red { 
+    background: linear-gradient(to bottom, #f44878, #f9215e); 
+}
+
+/* 京东外卖 - 红色 */
+.panel-title-bar.jd-red { 
+    background: linear-gradient(to bottom, #f44878, #f9215e); 
+}
+
+/* 淘宝闪购 - 橙色 */
+.panel-title-bar.taobao-orange { 
+    background: linear-gradient(to bottom, #ff9500, #ff5e3a); 
+}
+
+/* 打车领券 - 绿色 */
+.panel-title-bar.taxi-green { 
+    background: linear-gradient(to bottom, #3eca61, #3eca61); 
+}
+
+/* 其他服务 - 灰色 */
+.panel-title-bar.other-gray { 
+    background: linear-gradient(to bottom, #6c757d, #5a6268); 
+}
+
+.panel-icon {
+    transition: transform 0.3s ease;
+    font-size: 13px;
+    color: #666;
+}
+
+.coupon-panel-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 14px;
+    background: white;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    border-top: 1px solid #f0f0f0;
+}
+
+.coupon-panel-content.expanded {
+    max-height: 2000px;
+    padding: 14px;
+}
+
+.panel-icon.expanded {
+    transform: rotate(180deg);
+}
+
+.coupon-card {
+    background: white;
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 14px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+    border: 1px solid #eee;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.coupon-card:last-child {
+    margin-bottom: 0;
+}
+
+.coupon-panel-content.expanded .coupon-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.coupon-card:nth-child(1) { transition-delay: 0.1s; }
+.coupon-card:nth-child(2) { transition-delay: 0.2s; }
+.coupon-card:nth-child(3) { transition-delay: 0.3s; }
+
+.coupon-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.coupon-icon {
+    width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-size: 11px;
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: white;
+}
+
+.coupon-actions {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.btn-direct { background: linear-gradient(to right, #5bc8fa, #40bef8); color: white; font-size: 13px; padding: 10px 8px; flex: 1; border-radius: 8px; }
+.btn-code { background: linear-gradient(to right, #3eca61, #3eca61); color: white; font-size: 13px; padding: 10px 8px; flex: 1; border-radius: 8px; }
+.btn-copy { background: linear-gradient(to right, #1a8fe3, #2d68ff); color: white; font-size: 13px; padding: 10px 8px; flex: 1; border-radius: 8px; }
+.btn-dianping { background: linear-gradient(to right, #f44878, #f9215e); color: white; border-radius: 8px; }
+.btn-jd { background: linear-gradient(to right, #f44878, #f9215e); color: white; border-radius: 8px; }
+.btn-jintie { background: linear-gradient(to right, #2d68ff, #1a8fe3); color: white; font-size: 13px; padding: 10px 8px; flex: 1; border-radius: 8px; }
+
+.coupon-text {
+    padding: 10px;
+    border: 1px dashed #ddd;
+    border-radius: 6px;
+    font-size: 12px;
+    background-color: #f9f9f9;
+    color: #555;
+    margin-bottom: 10px;
+    word-break: break-all;
+    text-align: center;
+}
+
+.note { color: #666; font-size: 11px; text-align: center; line-height: 1.4; }
+.service-group { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+#other-services-content .service-group {
+    grid-template-columns: 1fr;
+}
+
+.btn-didi { background: linear-gradient(to right, #ff7e5f, #feb47b); color: white; font-size: 13px; padding: 10px 8px; border-radius: 8px; }
+.btn-t3 { background: linear-gradient(to right, #9c27b0, #673ab7); color: white; font-size: 13px; padding: 10px 8px; border-radius: 8px; }
+.btn-hxz { background: linear-gradient(to right, #ff9500, #ff5e3a); color: white; font-size: 13px; padding: 10px 8px; border-radius: 8px; }
+.btn-tc { background: linear-gradient(to right, #00b894, #00a085); color: white; font-size: 13px; padding: 10px 8px; border-radius: 8px; }
+.btn-meituan-flight { background: linear-gradient(to right, #1a8fe3, #2d68ff); color: white; font-size: 13px; padding: 10px 8px; border-radius: 8px; }
+.btn-meituan-train { background: linear-gradient(to right, #6c5ce7, #a29bfe); color: white; font-size: 13px; padding: 10px 8px; border-radius: 8px; }
+.btn-flow { 
+    background: linear-gradient(to right, #ff5000, #ff6a00); 
+    color: white; 
+    font-size: 13px; 
+    padding: 10px 8px; 
+    border-radius: 8px;
+    width: 100%;
+    grid-column: 1 / -1;
+}
+
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); align-items: center; justify-content: center; }
+.modal-content { background-color: white; padding: 20px; border-radius: 16px; width: 90%; max-width: 280px; text-align: center; position: relative; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); }
+.close { position: absolute; top: 10px; right: 14px; font-size: 22px; font-weight: bold; cursor: pointer; color: #999; transition: color 0.3s ease; }
+.close:hover { color: #333; }
+.qr-code { margin: 14px 0; padding: 10px; background: white; border-radius: 10px; display: inline-block; }
+.qr-code img { width: 100%; max-width: 180px; height: auto; border-radius: 6px; }
+.toast { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.8); color: white; padding: 14px 18px; border-radius: 8px; z-index: 1001; display: none; font-size: 13px; }
+.toast.show { display: block; }
+.loading { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 50%; border-top-color: white; animation: spin 1s linear infinite; margin-right: 6px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.tag {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: linear-gradient(to right, #FF7800, #FF5000);
+    color: white;
+    font-size: 11px;
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    body { padding: 10px; font-size: 13px; }
+    .main-container { padding: 16px; border-radius: 14px; }
+    .btn-group { flex-direction: row; flex-wrap: nowrap; }
+    .btn { font-size: 12px; padding: 10px 8px; }
+    .btn i { margin-right: 3px; font-size: 11px; }
+    .header h2 { font-size: 20px; }
+    .coupon-panel-header { font-size: 14px; padding: 14px 16px; }
+    .coupon-title { font-size: 14px; }
+    .coupon-actions { flex-wrap: nowrap; }
+}
+
+@media (max-width: 480px) {
+    body { padding: 8px; }
+    .main-container { padding: 14px; }
+    .btn-group { flex-wrap: nowrap; }
+    .btn { min-width: calc(33.333% - 6px); font-size: 11px; padding: 10px 6px; }
+    .btn-home { font-size: 12px; padding: 10px; }
+    .header h2 { font-size: 18px; }
+    .coupon-panel-content.expanded { max-height: 2000px; padding: 12px; }
+    .service-group { grid-template-columns: 1fr 1fr; }
+    #other-services-content .service-group { grid-template-columns: 1fr; }
+    .coupon-card { padding: 12px; }
+    .coupon-actions { flex-wrap: nowrap; }
+    .btn-direct, .btn-code, .btn-copy { font-size: 11px; padding: 8px 4px; }
+}
+
+@media (max-width: 360px) {
+    .btn { font-size: 10px; padding: 8px 4px; }
+    .btn i { display: none; }
+    .btn-home i { display: inline-block; }
+    .header h2 { font-size: 16px; }
+    .coupon-panel-header { font-size: 13px; }
+    .coupon-title { font-size: 13px; }
+    .coupon-actions { flex-wrap: nowrap; }
+    .btn-direct, .btn-code, .btn-copy { font-size: 10px; padding: 8px 2px; }
+}
