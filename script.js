@@ -76,8 +76,8 @@ const Tool = {
 // 配置中心
 const Config = {
     coupons: {
-        coupon1: { directUrl: "https://click.meituan.com/t?t=1&c=2&p=ylZY5r9zIX9q", copyOpenText: "1 %复制信息#% 打开团App http:/¥s4ODg4Y2ZhNjk¥一起领" },
-        coupon2: { directUrl: "https://click.meituan.com/t?t=1&c=2&p=wwoH479zTRNy", copyOpenText: "1 %复制信息#% 打开团App http:/¥ynNzY4ZGFlNjU¥一起领" },
+        coupon1: { directUrl: "https://click.meituan.com/t?t=1&c=2&p=ylZY5r9zIX9q", copyOpenText: "1 %复制信息#% 打开团App http:/¥ypMmJkMjM5ZTE¥一起领" },
+        coupon2: { directUrl: "https://click.meituan.com/t?t=1&c=2&p=wwoH479zTRNy", copyOpenText: "1 %复制信息#% 打开团App http:/¥z7ZDE3NTcwMzE¥一起领" },
         dianping1: { directUrl: "https://market.waimai.meituan.com/gd2/wm/4i838U?wm_ctype=dp_iphone&p=ylZY5r9zIX9q&t=1&c=2" },
         // ============== START: MODIFIED BLOCK (Removed allowance1 and allowance2) ==============
         // ============== END: MODIFIED BLOCK ==============
